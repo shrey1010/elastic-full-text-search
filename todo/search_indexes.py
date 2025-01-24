@@ -2,7 +2,7 @@ from elasticsearch_dsl import Document, Text, Date
 from elasticsearch_dsl.connections import connections
 
 # Establish connection to Elasticsearch
-connections.create_connection(hosts=['localhost'])
+connections.create_connection(hosts=['http://localhost:9200'])
 
 class TodoIndex(Document):
     title = Text(analyzer='standard')
