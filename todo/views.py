@@ -12,7 +12,12 @@ class TodoSearchView(View):
 
         # Elasticsearch query
         client = connections.get_connection()
-        s = Search(using=client, index=TodoIndex.Index.name).query("multi_match", query=query, fields=['title', 'description'])
+        s = Search(using=client, 
+                   index=TodoIndex.Index.name).query("multi_match",
+                                                      query=query, 
+                                                      fields=['title', 'description'],
+                                                      fuzziness="AUTO"
+                                                    )
 
         # Execute search
         response = s.execute()
