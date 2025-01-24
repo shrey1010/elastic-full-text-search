@@ -1,0 +1,33 @@
+## indexing in elastic 
+
+cURL : curl -X GET "http://localhost:9200/todos/_search?pretty"
+
+## Search in elastic
+cURL : curl -X GET "http://localhost:9200/todos/_search" -H 'Content-Type: application/json' -d'
+{
+  "query": {
+    "multi_match": {
+      "query": "your_search_term",
+      "fields": ["title", "description"]
+    }
+  }
+}'
+ 
+ ## mapping in elastic
+
+ cURL : curl -X GET "http://localhost:9200/todos/_mapping?pretty"
+
+## delete indexing in elastic
+
+cURL : curl -X DELETE "http://localhost:9200/todos"
+
+## get indexed record count
+cURL : curl -X GET "http://localhost:9200/todos/_count"
+
+## create indexing in elastic
+
+shell : python manage.py sync_elasticsearch
+
+
+for phonatic analyzer use :
+bin/elasticsearch-plugin install analysis-phonetic
