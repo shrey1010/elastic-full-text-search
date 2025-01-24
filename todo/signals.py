@@ -1,7 +1,7 @@
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
-from your_app.models import Todo
-from your_app.search_indexes import TodoIndex
+from todo.models import Todo
+from todo.search_indexes import TodoIndex
 
 @receiver(post_save, sender=Todo)
 def sync_todo_to_elasticsearch(sender, instance, **kwargs):
