@@ -1,0 +1,1 @@
+# elastic-full-text-search
