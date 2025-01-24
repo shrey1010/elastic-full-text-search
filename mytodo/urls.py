@@ -21,5 +21,5 @@ from todo.views import TodoSearchView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('search/', TodoSearchView.as_view(), name='todo_search'),
+    path("search/", TodoSearchView.as_view(), name="todo_search"),
 ]
