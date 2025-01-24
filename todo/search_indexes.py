@@ -5,7 +5,7 @@ from elasticsearch_dsl.connections import connections
 connections.create_connection(hosts=["http://localhost:9200"])
 
 ngram_analyzer = analyzer(
-    "ngram_analyzer", tokenizer="ngram", filter=["lowercase"], char_filter=[]
+    "ngram_analyzer", tokenizer="ngram", filter=["lowercase"], char_filter=[], tokenizer_params={"min_gram": 3, "max_gram": 5}
 )
 
 phonetic_analyzer = analyzer(
